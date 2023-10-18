@@ -1,0 +1,24 @@
+CREATE DATABASE ecommerce;
+USE ecommerce;
+SELECT * FROM produtos;
+CREATE TABLE username( 
+usu_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+usu_nome VARCHAR(50) NOT NULL,
+usu_senha VARCHAR(50) NOT NULL,
+usu_ativo CHAR(1) NOT NULL
+);
+
+CREATE TABLE produtos( 
+pro_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+pro_nome VARCHAR(50) NOT NULL,
+pro_desc VARCHAR(300) NOT NULL,
+pro_quant INT NOT NULL,
+pro_valor INT NOT NULL,
+pro_ativo CHAR(1) NOT NULL,
+pro_img LONGBLOB 
+);
+
+CREATE USER 'adm'@'localhost' IDENTIFIED BY '123';
+GRANT ALL PRIVILEGES ON *.* TO 'adm'@'localhost';
+FLUSH PRIVILEGES;
+
